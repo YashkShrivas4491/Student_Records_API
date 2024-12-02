@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException, Query
 from bson import ObjectId
 from typing import Optional, List, Dict, Any
-from schemas import StudentCreate, StudentUpdate, StudentResponse
-from database import get_students_collection
+from .schemas import StudentCreate, StudentUpdate, StudentResponse
+from .database import get_students_collection
 
 router = APIRouter(prefix="/students", tags=["Students"])
 students_collection = get_students_collection()
