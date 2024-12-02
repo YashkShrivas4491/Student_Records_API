@@ -1,6 +1,17 @@
 from pymongo import MongoClient
+from dotenv import load_dotenv
+import os
 
-MONGO_URI = "mongodb+srv://yashkshrivas1234:Exp1bMcnjjhZ61lT@cluster0.k7fadbx.mongodb.net/"
+# Load environment variables from the .env file
+load_dotenv()
+
+# Get MongoDB URI from the environment
+MONGO_URI = os.getenv("MONGO_URI")
+
+if not MONGO_URI:
+    raise ValueError("MONGO_URI is not set in the environment variables.")
+
+# Initialize MongoDB client
 client = MongoClient(MONGO_URI)
 db = client['studentdb']
 
